@@ -47,9 +47,11 @@ return array(
                 //'...'
                 */
              ),
-            'auth_uri'      => 'https://www.facebook.com/v2.5/dialog/oauth',
+            'auth_uri'      => 'https://www.facebook.com',
+            'auth_method'   => 'v2.5/dialog/oauth',
             'token_uri'     => 'https://graph.facebook.com/oauth/access_token',
-            'info_uri'      => 'https://graph.facebook.com/v2.5/me',
+            'info_uri'      => 'https://graph.facebook.com',
+            'info_method'   => 'v2.5/me',
             'client_id'     => 'your id',
             'client_secret' => 'your secret',
             'redirect_uri'  => 'your callback url which links to your controller',

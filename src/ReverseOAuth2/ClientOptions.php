@@ -11,9 +11,13 @@ class ClientOptions extends AbstractOptions
 
     protected $authUri;
 
+    protected $authMethod;
+
     protected $tokenUri;
 
     protected $infoUri;
+
+    protected $infoMethod;
 
     protected $clientId;
 
@@ -34,12 +38,21 @@ class ClientOptions extends AbstractOptions
 
     public function getAuthUri()
     {
+        if (isset($this->authMethod))
+        {
+            return $this->authUri.'/'.$this->authMethod;
+        }
         return $this->authUri;
     }
 
     public function setAuthUri($authUri)
     {
         $this->authUri = $authUri;
+    }
+
+    public function setAuthMethod($authMethod)
+    {
+        $this->authMethod = $authMethod;
     }
 
     public function getTokenUri()
@@ -54,12 +67,21 @@ class ClientOptions extends AbstractOptions
 
     public function getInfoUri()
     {
+        if (isset($this->infoMethod))
+        {
+            return $this->infoUri.'/'.$this->infoMethod;
+        }
         return $this->infoUri;
     }
 
     public function setInfoUri($infoUri)
     {
         $this->infoUri = $infoUri;
+    }
+
+    public function setInfoMethod($infoMethod)
+    {
+        $this->infoMethod = $infoMethod;
     }
 
     public function getClientId()

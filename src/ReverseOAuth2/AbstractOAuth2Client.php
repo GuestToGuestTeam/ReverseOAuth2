@@ -44,7 +44,10 @@ abstract class AbstractOAuth2Client
         
         } elseif(isset($this->session->token->access_token)) {
             
-            $urlProfile = $this->options->getInfoUri() . '?access_token='.$this->session->token->access_token;
+            $urlProfile = $this->options->getInfoUri()
+                . '?access_token='.$this->session->token->access_token
+                . '&fields=email,first_name,last_name,gender,link,locale,name'
+            ;
             
             $client = $this->getHttpclient()
                             ->resetParameters(true)

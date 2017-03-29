@@ -48,9 +48,9 @@ class Facebook extends AbstractOAuth2Client
             ));
             $retVal = $client->send()->getContent();
 
-            parse_str($retVal, $token);
+            $token = json_decode($retVal, true);
 
-            if(is_array($token) AND isset($token['access_token']) AND $token['expires'] > 0) {
+            if(is_array($token) AND isset($token['access_token']) AND $token['expires_in'] > 0) {
 
                 $this->session->token = (object)$token;
                 return true;
